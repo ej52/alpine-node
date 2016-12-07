@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:4.5
+FROM mhart/alpine-node:4.6.1
 MAINTAINER Elton Renda "https://github.com/ej52"
 
 RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
