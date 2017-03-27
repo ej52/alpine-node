@@ -4,7 +4,7 @@ MAINTAINER Elton Renda "https://github.com/ej52"
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 6.10.1
 
-RUN adduser -D -u 1000 node \
+RUN adduser -D node \
     && apk add --no-cache \
         libstdc++ \
     && apk add --no-cache --virtual .build-deps \
