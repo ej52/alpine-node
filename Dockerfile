@@ -67,3 +67,4 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/reposit
     && rm -rf /var/cache/apk/*
 
 WORKDIR /app
+CMD [ "node" ]
