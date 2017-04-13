@@ -3,4 +3,4 @@
 
 Node image for Docker, based on Alpine Linux using s6-overlay for process management.
 
-Latest version is `VERSION`, or `latest`.
+Latest version is `1.0.0`, or `latest`.
