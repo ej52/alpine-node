@@ -1,11 +1,11 @@
-FROM ej52/alpine-base:3.5
+FROM alpine:3.5
 MAINTAINER Elton Renda "https://github.com/ej52"
 
 ENV NPM_CONFIG_LOGLEVEL info
 
 RUN adduser -D node \
     && apk add --no-cache \
-        libstdc++ \
+        bash libstdc++ \
     && apk add --no-cache --virtual .build-deps \
         binutils-gold \
         curl \
