@@ -29,9 +29,9 @@ RUN addgroup -g 1000 node \
       C4F0DFFF4E8C1A8236409D08E73BC641CC11F4C8 \
       56730D5401028683275BD23C23EFEFE93C4CFFFE \
     ; do \
-      gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "" || \
-      gpg --keyserver pgp.mit.edu --recv-keys "" || \
-      gpg --keyserver keyserver.pgp.com --recv-keys "" ; \
+      gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key" || \
+      gpg --keyserver pgp.mit.edu --recv-keys "$key" || \
+      gpg --keyserver keyserver.pgp.com --recv-keys "$key" ; \
     done \
     && curl -SLO "https://nodejs.org/dist/v6.10.1/node-v6.10.1.tar.xz" \
     && curl -SLO "https://nodejs.org/dist/v6.10.1/SHASUMS256.txt.asc" \
@@ -51,9 +51,9 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg \
   && for key in \
     6A010C5166006599AA17F08146C2130DFD2497F5 \
   ; do \
-    gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "" || \
-    gpg --keyserver pgp.mit.edu --recv-keys "" || \
-    gpg --keyserver keyserver.pgp.com --recv-keys "" ; \
+    gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key" || \
+    gpg --keyserver pgp.mit.edu --recv-keys "$key" || \
+    gpg --keyserver keyserver.pgp.com --recv-keys "$key" ; \
   done \
   && curl -fSL -o yarn.js "https://yarnpkg.com/downloads/0.22.0/yarn-legacy-0.22.0.js" \
   && curl -fSL -o yarn.js.asc "https://yarnpkg.com/downloads/0.22.0/yarn-legacy-0.22.0.js.asc" \
