@@ -1,5 +1,5 @@
 FROM alpine:3.4
-MAINTAINER Elton Renda "https://github.com/ej52"
+LABEL maintainer Elton Renda "elton@ebrdev.co.za"
 
 ENV NPM_CONFIG_LOGLEVEL info
 
