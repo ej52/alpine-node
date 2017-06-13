@@ -33,19 +33,19 @@ RUN addgroup -g 1000 node \
       gpg --keyserver pgp.mit.edu --recv-keys "$key" || \
       gpg --keyserver keyserver.pgp.com --recv-keys "$key" ; \
     done \
-    && curl -SLO "https://nodejs.org/dist/v6.10.1/node-v6.10.1.tar.xz" \
-    && curl -SLO "https://nodejs.org/dist/v6.10.1/SHASUMS256.txt.asc" \
+    && curl -SLO "https://nodejs.org/dist/v6.11.0/node-v6.11.0.tar.xz" \
+    && curl -SLO "https://nodejs.org/dist/v6.11.0/SHASUMS256.txt.asc" \
     && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \
-    && grep " node-v6.10.1.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
-    && tar -xf "node-v6.10.1.tar.xz" \
-    && cd "node-v6.10.1" \
+    && grep " node-v6.11.0.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
+    && tar -xf "node-v6.11.0.tar.xz" \
+    && cd "node-v6.11.0" \
     && ./configure \
     && make -j$(getconf _NPROCESSORS_ONLN) \
     && make install \
     && apk del .build-deps \
     && cd .. \
-    && rm -Rf "node-v6.10.1" \
-    && rm "node-v6.10.1.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
+    && rm -Rf "node-v6.11.0" \
+    && rm "node-v6.11.0.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
 
 RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg \
   && for key in \
@@ -55,8 +55,8 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg \
     gpg --keyserver pgp.mit.edu --recv-keys "$key" || \
     gpg --keyserver keyserver.pgp.com --recv-keys "$key" ; \
   done \
-  && curl -fSL -o yarn.js "https://yarnpkg.com/downloads/0.22.0/yarn-legacy-0.22.0.js" \
-  && curl -fSL -o yarn.js.asc "https://yarnpkg.com/downloads/0.22.0/yarn-legacy-0.22.0.js.asc" \
+  && curl -fSL -o yarn.js "https://yarnpkg.com/downloads/0.24.6/yarn-legacy-0.24.6.js" \
+  && curl -fSL -o yarn.js.asc "https://yarnpkg.com/downloads/0.24.6/yarn-legacy-0.24.6.js.asc" \
   && gpg --batch --verify yarn.js.asc yarn.js \
   && rm yarn.js.asc \
   && mv yarn.js /usr/local/bin/yarn \
